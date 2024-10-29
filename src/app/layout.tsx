@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import { MainDataContextProvider } from "@/Contexts";
 import { ReactNode } from "react";
@@ -16,6 +15,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
+  title: "Orçamento/Pedido",
+  description: "Orçamento/Pedido",
   title: "Orçamento/Pedido",
   description: "Orçamento/Pedido",
 };
