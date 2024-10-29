@@ -8,15 +8,15 @@ const Home = () => {
   const router = useRouter();
 
   return (
-    <div className={styles.homeContainer}>
+    <section className={styles.homeContainer}>
       <Button size="large" variant="contained" onClick={() => router.push("/pedido")}>
         Pedido
       </Button>
-
+      <br />
       <Button size="large" variant="contained" onClick={() => router.push("/orcamento")}>
         Orçamento
       </Button>       
-    </div>
+    </section>
   );  
 }
 
