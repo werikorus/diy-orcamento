@@ -9,11 +9,11 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
-      <Button size="medium" variant="contained" onClick={() => router.push("/pedido")}>
+      <Button size="large" variant="contained" onClick={() => router.push("/pedido")}>
         Pedido
       </Button>
 
-      <Button size="medium" variant="contained" onClick={() => router.push("/orcamento")}>
+      <Button size="large" variant="contained" onClick={() => router.push("/orcamento")}>
         Orçamento
       </Button>       
     </div>

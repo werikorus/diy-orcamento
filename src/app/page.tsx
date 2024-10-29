@@ -1,5 +1,5 @@
-import Rotas from './../pages/routes';
+import Home from '@/pages/Home';
 
 export default function HomePage() {
-  return <Rotas />;
+  return <Home />;
 }
