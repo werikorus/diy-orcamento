@@ -1,11 +1,11 @@
-import Form from "@/components/Form";
+import { Form } from "@/components";
 
 const Orcamento = () => {
-  return(
+  return (
     <div className="orcamento-container">
-      <Form />
+      <Form type={1} />
     </div>
-  )
+  );
 };
 
 export default Orcamento;

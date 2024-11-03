@@ -1,75 +1,88 @@
-import React from "react";
-import { Formik } from "formik";
+import React, { useRef } from "react";
 import { Button } from "@mui/material";
+import { ContatoForm } from "./Fragments/ContatoForm/ContatoForm";
+import { ProdutosForm } from "./Fragments/ProdutosForm/ProdutosForm";
+import { Servicos } from "./Fragments/Servicos/Servicos";
+import { Condicoes } from "./Fragments/Condicoes/Condicoes";
+import { useDataForm } from "@/Hooks";
 
-const Form = () => {
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper as SwiperType } from "swiper";
+import styles from "./Form.module.css";
+import "swiper/css";
+
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
+type typeForm = {
+  type: number;
+}
+
+export const Form = ({ type }: typeForm) => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const { onSubmitSlideForm  } = useDataForm();
+
+  const goNextSlide = () => {
+    if (swiperRef.current) {
+      onSubmitSlideForm(swiperRef.current.activeIndex);
+      swiperRef.current.slideNext();
+    }
+  };
+
+  const goPrevSlide = () => {
+    if (swiperRef.current) {
+      onSubmitSlideForm(swiperRef.current.activeIndex);
+      swiperRef.current.slidePrev();
+    }
+  };
+
   return (
-    <div className="form-container">
-      <Formik
-        initialValues={{ email: "", password: "" }}
-        validate={(values) => {
-          const errors = {
-            email: "",
-          };
+    <div className={styles.formContainer}>
+      <h3 className={styles.title}>
+        {type == 0 ? "Novo Pedidos" : "Novo Orçamento"}
+      </h3>
 
-          if (!values.email) {
-            errors.email = "Required";
-          } else if (
-            !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-          ) {
-            errors.email = "Invalid email address";
-          }
-
-          return errors;
-        }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-
-            setSubmitting(false);
-          }, 400);
-        }}
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        className={styles.swiper}
+        allowTouchMove={false}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-        }) => (
-          <form onSubmit={handleSubmit}>
-            <input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
+        <SwiperSlide className={styles.swiperSlide}>
+          <ContatoForm />
+        </SwiperSlide>
 
-            {errors.email && touched.email && errors.email}
+        <SwiperSlide>
+          <ProdutosForm />
+        </SwiperSlide>
 
-            <input
-              type="password"
-              name="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.password}
-            />
-            {errors.password && touched.password && errors.password}
+        <SwiperSlide>
+          <Servicos />
+        </SwiperSlide>
 
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-          </form>
-        )}
-      </Formik>
+        <SwiperSlide>
+          <Condicoes />
+        </SwiperSlide>
+      </Swiper>
 
-      <Button variant="contained">Salvar</Button>
-      <Button variant="contained">Imprimir</Button>
+      <div className={styles.buttonContainer}>
+        <Button
+          onClick={goPrevSlide}
+          variant="contained"
+          size="small"
+        >
+          <ArrowBackIosNewIcon />
+        </Button>
+
+        <Button
+          onClick={goNextSlide}
+          variant="contained"
+          size="small"
+        >
+          <ArrowForwardIosIcon />
+        </Button>
+      </div>
     </div>
   );
 };
-
-export default Form;

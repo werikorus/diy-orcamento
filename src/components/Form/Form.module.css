@@ -1,0 +1,25 @@
+
+.formContainer{
+  display: flexbox;
+
+  /*justify-content: center;  
+  align-items: center;*/
+  align-content: space-between;
+}
+
+.swiper{
+  display: flexbox;
+  width: 600px;  
+}
+
+.buttonContainer{
+  margin-top: 30px;
+  height: 30px;
+  display: flex;
+  width: 250px;
+  justify-content: space-around;
+}
+
+.title{
+  justify-self: center;
+}

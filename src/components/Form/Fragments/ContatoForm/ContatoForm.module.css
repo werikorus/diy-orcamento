@@ -1,0 +1,21 @@
+.formContainer{  
+  display: flexbox;
+  max-width: 500px;
+  margin: auto;
+}
+
+.formControl{
+  display: flex;
+}
+
+.TextField{
+  margin: 9px;
+  /*width: 100%;*/
+  max-width: 500px;
+}
+
+.divGrade{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}

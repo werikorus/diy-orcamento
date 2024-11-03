@@ -1,9 +1,10 @@
 .homeContainer{
   display: flex;
-  width: 100%;
+  width: 50%;
+  max-width: 300px;
   height: 100vh;
   align-items: center;
-  align-content: center;
   justify-content: center;
-  /*background-color: darkgrey;*/
+  margin: auto;
+  justify-content: space-around;  
 }
