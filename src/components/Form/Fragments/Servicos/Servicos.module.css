@@ -1,0 +1,22 @@
+.formContainer{
+  display: flex;
+  flex-direction: column;  
+  height: 600px;
+  justify-items: center;  
+  justify-content: center;
+  align-items: center;  
+}
+.textField{
+  margin: 3px;
+}
+
+.textQuantity{
+  width: 4rem;
+}
+.formControl{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
