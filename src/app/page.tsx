@@ -1,9 +1,7 @@
 import Home from "@/pages/Home";
 import { MainDataContextProvider } from "@/Contexts";
-
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
-
 
 //const firebaseConfig = {
 //  apiKey: "AIzaSyCyIxGygtTf-DvIR7MrSLQMt1G6-P1OyFY",
@@ -20,7 +18,6 @@ import { MainDataContextProvider } from "@/Contexts";
 
 export default function App() {
   //console.log(analytics);
-  
   return (
     <MainDataContextProvider>
       <Home />

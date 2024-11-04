@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+/* eslint-disable react/jsx-key */
+import React, { useRef, ReactNode } from "react";
 import { Button } from "@mui/material";
-import { ContatoForm } from "./Fragments/ContatoForm/ContatoForm";
-import { ProdutosForm } from "./Fragments/ProdutosForm/ProdutosForm";
-import { Servicos } from "./Fragments/Servicos/Servicos";
-import { Condicoes } from "./Fragments/Condicoes/Condicoes";
+import {
+  ContatoForm,
+  ProdutosForm,
+  ServicosForm,
+  CondicoesForm,
+} from "./Fragments";
+
 import { useDataForm } from "@/Hooks";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,13 +18,13 @@ import "swiper/css";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-type typeForm = {
+type FormProps = {
   type: number;
 }
 
-export const Form = ({ type }: typeForm) => {
+export const Form = ({ type }: FormProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
-  const { onSubmitSlideForm  } = useDataForm();
+  const { onSubmitSlideForm } = useDataForm();
 
   const goNextSlide = () => {
     if (swiperRef.current) {
@@ -36,10 +40,17 @@ export const Form = ({ type }: typeForm) => {
     }
   };
 
+  const forms: ReactNode[] = [
+    <ContatoForm />,
+    <ProdutosForm />,
+    <ServicosForm />,
+    <CondicoesForm />,
+  ];
+
   return (
     <div className={styles.formContainer}>
       <h3 className={styles.title}>
-        {type == 0 ? "Novo Pedidos" : "Novo Orçamento"}
+        {type == 0 ? "Novo Pedido" : "Novo Orçamento"}
       </h3>
 
       <Swiper
@@ -49,37 +60,17 @@ export const Form = ({ type }: typeForm) => {
         allowTouchMove={false}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
-        <SwiperSlide className={styles.swiperSlide}>
-          <ContatoForm />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <ProdutosForm />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Servicos />
-        </SwiperSlide>
-
-        <SwiperSlide>
-          <Condicoes />
-        </SwiperSlide>
+        {forms.map((form, index) => (
+          <SwiperSlide key={index}>{form}</SwiperSlide>
+        ))}
       </Swiper>
 
       <div className={styles.buttonContainer}>
-        <Button
-          onClick={goPrevSlide}
-          variant="contained"
-          size="small"
-        >
+        <Button onClick={goPrevSlide} variant="contained" size="small">
           <ArrowBackIosNewIcon />
         </Button>
 
-        <Button
-          onClick={goNextSlide}
-          variant="contained"
-          size="small"
-        >
+        <Button onClick={goNextSlide} variant="contained" size="small">
           <ArrowForwardIosIcon />
         </Button>
       </div>

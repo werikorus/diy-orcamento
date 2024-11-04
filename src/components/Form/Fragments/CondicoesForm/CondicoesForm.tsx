@@ -1,21 +1,20 @@
 import { TextField, FormControl } from "@mui/material";
-import styles from "./Servicos.module.css";
+import styles from "./Condicoes.module.css";
 
-export const Servicos = () =>{
+export const CondicoesForm = () =>{
   return (
     <div className={styles.formContainer}>
-      <h1>Serviços</h1>
+      <h1>Condições de pagamento</h1>
       <FormControl className={styles.formControl}>
         <TextField
           className={styles.textField}
-          label="Descrição serviço"
+          label="Condições"
           variant="outlined"
         />
         <TextField
           className={styles.textQuantity}
-          placeholder="0"
-          variant="outlined"
-          type="number"
+          label="Quantidade"
+          variant="outlined"          
         />
       </FormControl>
     </div>
