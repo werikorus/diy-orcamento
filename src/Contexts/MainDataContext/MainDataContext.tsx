@@ -22,7 +22,14 @@ export const MainDataContextProvider = ({ children }: { children: ReactNode }) =
         setContactValues,
       }}
     >
+    <MainDataContext.Provider
+      value={{
+        contactValues,
+        setContactValues,
+      }}
+    >
       {children}
     </MainDataContext.Provider>
   );
 }; 
+

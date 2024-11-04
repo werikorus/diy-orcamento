@@ -1,4 +1,4 @@
-export type Contact = {
+export type TContact = {
   cpfCnpj: number;
   inscricaoEstadual: number;
   razaoSocial: string;
