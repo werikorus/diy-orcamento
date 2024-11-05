@@ -1,9 +1,22 @@
 import { useState } from "react";
 import { TextField, FormControl, Button } from "@mui/material";
+import { useState } from "react";
+import { TextField, FormControl, Button } from "@mui/material";
 import styles from "./ProdutosForm.module.css";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
+export const ProdutosForm = () => {
+  const [items, setItems] = useState<JSX.Element[]>([]);
+
+  const createProductItem = (
+    addItem: (item: JSX.Element, index: number) => void,
+    index: number
+  ) => {
+    const item = (
+      <li key={index} className={styles.productItem}>
 export const ProdutosForm = () => {
   const [items, setItems] = useState<JSX.Element[]>([]);
 
@@ -91,3 +104,4 @@ export const ProdutosForm = () => {
     </div>
   );
 };
+
