@@ -1,13 +1,12 @@
-import { TContact } from "@/Types";
 import { getValue } from "@/Helpers";
 import { useMainDataContext } from "../useDataContext";
-import { useEffect } from "react";
 
 export const useDataForm = () => {
-  const { contactValues, setContactValues } = useMainDataContext();
+  const { setContactValues } = useMainDataContext();
   
   const onSubmitContactForm = () => {
-    const contactData: TContact = {
+    setContactValues((prevValues) => ({
+      ...prevValues,
       cpfCnpj: parseInt(getValue("cnpj-cpf")),
       inscricaoEstadual: parseInt(getValue("state-subscription")),
       razaoSocial: getValue("social-reazon"),
@@ -19,14 +18,7 @@ export const useDataForm = () => {
       complemento: getValue("complement"),
       cidade: getValue("city"),
       estado: getValue("state"),
-    };
-
-    setContactValues((prevValues) => ({
-      ...prevValues,
-      ...contactData,
     }));
-
-    console.log("Updated Values: ", contactValues);
   }
 
   const onSubmitProductsForm = () => {
@@ -63,10 +55,6 @@ export const useDataForm = () => {
         break;
     }
   };
-
-  useEffect(() => {
-    console.log("Updated contactValues: ", contactValues);
-  }, [contactValues]);
 
   return { onSubmitSlideForm };
 };

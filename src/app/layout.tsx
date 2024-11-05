@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { MainDataContextProvider } from "@/Contexts";
 
 export const metadata: Metadata = {
   title: "Orçamento/Pedido",
   description: "Orçamento/Pedido",
 };
+
 
 export default function RootLayout({
   children,
@@ -14,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {children}
+          <MainDataContextProvider>
+            {children}
+          </MainDataContextProvider>
       </body>
     </html>
   );

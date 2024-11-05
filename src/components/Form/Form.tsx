@@ -58,7 +58,9 @@ export const Form = ({ type }: FormProps) => {
         slidesPerView={1}
         className={styles.swiper}
         allowTouchMove={false}
-        onSwiper={(swiper) => (swiperRef.current = swiper)}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
       >
         {forms.map((form, index) => (
           <SwiperSlide key={index}>{form}</SwiperSlide>

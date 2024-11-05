@@ -1,50 +1,46 @@
 'use client'
-
-import {
+import React, {
   createContext,
-  ReactNode,
   useState,
-  Dispatch,
-  SetStateAction,
   useEffect,
+  ReactNode
 } from "react";
 
 import { TContact } from "@/Types";
 
-const defaultContactValues: TContact = {
-  cpfCnpj: 0,
-  inscricaoEstadual: 0,
-  razaoSocial: "",
-  nomeFantazia: "",
-  telefone: 0,
-  cep: 0,
-  email: "",
-  endereco: "",
-  complemento: "",
-  cidade: "",
-  estado: "",
-};
-
-export const MainDataContext = createContext<{
+type PropsDataContext = {
   contactValues: TContact;
-  setContactValues: Dispatch<SetStateAction<TContact>>;
-}>({
-  contactValues: defaultContactValues,
-  setContactValues: () => null,
-});
-
-type TProviderProps = {
-  children: ReactNode;
+  setContactValues: React.Dispatch<React.SetStateAction<TContact>>;
 };
 
-export const MainDataContextProvider = ({ children }: TProviderProps) => {
-  const [contactValues, setContactValues] =
-    useState<TContact>(defaultContactValues);
+const DEFAULT_VALUE = {
+  contactValues: {
+    cpfCnpj: 0,
+    inscricaoEstadual: 0,
+    razaoSocial: "",
+    nomeFantazia: "",
+    telefone: 0,
+    cep: 0,
+    email: "",
+    endereco: "",
+    complemento: "",
+    cidade: "",
+    estado: "",
+  },
+  setContactValues: () => {},
+};
+
+export const MainDataContext = createContext<PropsDataContext>(DEFAULT_VALUE);
+
+export const MainDataContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+  const [ contactValues, setContactValues ] = useState(
+    DEFAULT_VALUE.contactValues
+  );
 
   useEffect(() => {
-    console.log(contactValues);
+    console.log("Data Context:", contactValues);
   }, [contactValues]);
-  
+
   return (
     <MainDataContext.Provider
       value={{

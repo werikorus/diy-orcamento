@@ -1,5 +1,6 @@
+"use client"
 import Home from "@/pages/Home";
-import { MainDataContextProvider } from "@/Contexts";
+import { GlobalStyles, createTheme, ThemeProvider } from "@mui/material";
 
 //import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
@@ -17,11 +18,29 @@ import { MainDataContextProvider } from "@/Contexts";
 //const app = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
+
+const theme = createTheme({
+  components: {
+    MuiInputBase: {
+      defaultProps: {
+        disableInjectingGlobalStyles: true,
+      },
+    },
+  },
+});
+
 export default function App() {
-  //console.log(analytics);
   return (
-    <MainDataContextProvider>
-      <Home />
-    </MainDataContextProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyles
+        styles={{
+          "@keyframes mui-auto-fill": { from: { display: "block" } },
+          "@keyframes mui-auto-fill-cancel": {
+            from: { display: "block" },
+          },
+        }}
+      />
+      <Home />;
+    </ThemeProvider>
   );
 }
