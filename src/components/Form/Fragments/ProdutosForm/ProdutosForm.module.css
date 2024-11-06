@@ -28,6 +28,10 @@
   justify-content: center;
 }
 
+.listControl{
+  display: flexbox;
+}
+
 .productItem{
   display: flexbox;
   flex-direction: row;

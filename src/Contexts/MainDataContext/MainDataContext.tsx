@@ -1,9 +1,7 @@
 'use client'
-
 import React, {
   createContext,
   useState,
-  useEffect,
   ReactNode
 } from "react";
 
@@ -16,10 +14,6 @@ export const MainDataContextProvider = ({ children }: { children: ReactNode }) =
   const [contactValues, setContactValues] = useState(
     DEFAULT_CONTACT_VALUE.contactValues
   );
-
-  useEffect(() => {
-    console.log("contactValues atualizado:", contactValues);
-  }, [contactValues]);
 
   return (
     <MainDataContext.Provider

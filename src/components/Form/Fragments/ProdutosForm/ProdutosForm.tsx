@@ -56,7 +56,7 @@ export const ProdutosForm = () => {
     <div className={styles.formContainer}>
       <h1>Produtos</h1>
       <FormControl className={styles.formControl}>
-        <ul id="product-list" className={styles.formControl}>
+        <ul id="product-list" className={styles.listControl}>
           <li className={styles.productItem}>
             <TextField
               className={styles.textQuantity}
@@ -76,12 +76,16 @@ export const ProdutosForm = () => {
               placeholder="R$"
               type="currency"
             />
-            {items}
           </li>
+          {items}
         </ul>
       </FormControl>
 
-      <Button size="small" onClick={addProductItem} disabled={items.length >= 2}>
+      <Button
+        size="small"
+        onClick={addProductItem}
+        disabled={items.length >= 2}
+      >
         <PlaylistAddIcon fontSize="large" />
       </Button>
     </div>
