@@ -1,23 +1,18 @@
-'use client'
-import React, {
-import React, {
-  createContext,
-  useState,
-  ReactNode
-} from "react";
+"use client";
+import React, { createContext, useState, ReactNode } from "react";
 
 import { DEFAULT_CONTACT_VALUE } from "@/Constants";
 import { IPropsDataContext } from "@/Interfaces";
-import { DEFAULT_CONTACT_VALUE } from "@/Constants";
-import { IPropsDataContext } from "@/Interfaces";
 
-export const MainDataContext = createContext<IPropsDataContext>(DEFAULT_CONTACT_VALUE);
-export const MainDataContext = createContext<IPropsDataContext>(DEFAULT_CONTACT_VALUE);
+export const MainDataContext = createContext<IPropsDataContext>(
+  DEFAULT_CONTACT_VALUE
+);
 
-export const MainDataContextProvider = ({ children }: { children: ReactNode }) => {
-  const [contactValues, setContactValues] = useState(
-    DEFAULT_CONTACT_VALUE.contactValues
-export const MainDataContextProvider = ({ children }: { children: ReactNode }) => {
+export const MainDataContextProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
   const [contactValues, setContactValues] = useState(
     DEFAULT_CONTACT_VALUE.contactValues
   );
@@ -29,14 +24,7 @@ export const MainDataContextProvider = ({ children }: { children: ReactNode }) =
         setContactValues,
       }}
     >
-    <MainDataContext.Provider
-      value={{
-        contactValues,
-        setContactValues,
-      }}
-    >
       {children}
     </MainDataContext.Provider>
   );
-}; 
-
+};

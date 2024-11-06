@@ -17,3 +17,6 @@ export type FooterProps = {
   prevSlide: () => void;
 };
 
+export type FormProps = {
+  type: number;
+};

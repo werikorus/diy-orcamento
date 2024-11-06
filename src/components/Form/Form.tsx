@@ -12,17 +12,14 @@ import { PreviewOrImpress } from "../PreviewOrImpress";
 
 import { useDataForm } from "@/Hooks";
 import { Footer } from "../Footer";
+import { FormProps } from "@/Types";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import styles from "./Form.module.css";
 import "swiper/css";
 
-type FormProps = {
-  type: number;
-}
 
-export const Form = ({ type }: FormProps) => {
 export const Form = ({ type }: FormProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const { onSubmitSlideForm } = useDataForm();

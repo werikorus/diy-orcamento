@@ -18,8 +18,6 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Orçamento/Pedido",
   description: "Orçamento/Pedido",
-  title: "Orçamento/Pedido",
-  description: "Orçamento/Pedido",
 };
 
 export default function RootLayout({children }:{ children: ReactNode}) {  
