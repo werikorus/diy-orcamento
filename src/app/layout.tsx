@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import { MainDataContextProvider } from "@/Contexts";
 import { ReactNode } from "react";
 
