@@ -1,4 +1,5 @@
 'use client'
+
 import React, {
   createContext,
   useState,
@@ -6,39 +7,18 @@ import React, {
   ReactNode
 } from "react";
 
-import { TContact } from "@/Types";
+import { DEFAULT_CONTACT_VALUE } from "@/Constants";
+import { IPropsDataContext } from "@/Interfaces";
 
-type PropsDataContext = {
-  contactValues: TContact;
-  setContactValues: React.Dispatch<React.SetStateAction<TContact>>;
-};
+export const MainDataContext = createContext<IPropsDataContext>(DEFAULT_CONTACT_VALUE);
 
-const DEFAULT_VALUE = {
-  contactValues: {
-    cpfCnpj: 0,
-    inscricaoEstadual: 0,
-    razaoSocial: "",
-    nomeFantazia: "",
-    telefone: 0,
-    cep: 0,
-    email: "",
-    endereco: "",
-    complemento: "",
-    cidade: "",
-    estado: "",
-  },
-  setContactValues: () => {},
-};
-
-export const MainDataContext = createContext<PropsDataContext>(DEFAULT_VALUE);
-
-export const MainDataContextProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [ contactValues, setContactValues ] = useState(
-    DEFAULT_VALUE.contactValues
+export const MainDataContextProvider = ({ children }: { children: ReactNode }) => {
+  const [contactValues, setContactValues] = useState(
+    DEFAULT_CONTACT_VALUE.contactValues
   );
 
   useEffect(() => {
-    console.log("Data Context:", contactValues);
+    console.log("contactValues atualizado:", contactValues);
   }, [contactValues]);
 
   return (

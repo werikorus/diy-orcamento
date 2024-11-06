@@ -43,7 +43,7 @@ export const ProdutosForm = () => {
   const addProductItem = () => {
     const newIndex = items.length;
     createProductItem(
-      (item, index) => setItems((prevItems) => [...prevItems, item]),
+      (item) => setItems((prevItems) => [...prevItems, item]),
       newIndex
     );
   };

@@ -18,6 +18,7 @@
   display: flex;
   width: 250px;
   justify-content: space-around;
+  margin: auto;
 }
 
 .title{

@@ -11,3 +11,9 @@ export type TContact = {
   cidade: string;
   estado: string;
 };
+
+export type FooterProps = {
+  nextSlide: () => void;
+  prevSlide: () => void;
+};
+

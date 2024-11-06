@@ -1,0 +1,12 @@
+.footerContainer{
+  display: flex;
+  align-self: end;
+}
+.buttonContainer{
+  margin-top: 30px;
+  height: 30px;
+  display: flex;
+  width: 250px;
+  justify-content: space-around;
+  margin: auto;
+}

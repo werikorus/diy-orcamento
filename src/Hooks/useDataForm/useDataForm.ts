@@ -2,11 +2,11 @@ import { getValue } from "@/Helpers";
 import { useMainDataContext } from "../useDataContext";
 
 export const useDataForm = () => {
-  const { setContactValues } = useMainDataContext();
-  
+  const { contactValues, setContactValues } = useMainDataContext();
+   
   const onSubmitContactForm = () => {
-    setContactValues((prevValues) => ({
-      ...prevValues,
+    setContactValues({
+      ...contactValues,
       cpfCnpj: parseInt(getValue("cnpj-cpf")),
       inscricaoEstadual: parseInt(getValue("state-subscription")),
       razaoSocial: getValue("social-reazon"),
@@ -18,7 +18,7 @@ export const useDataForm = () => {
       complemento: getValue("complement"),
       cidade: getValue("city"),
       estado: getValue("state"),
-    }));
+    });
   }
 
   const onSubmitProductsForm = () => {
