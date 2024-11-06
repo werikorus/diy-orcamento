@@ -17,6 +17,6 @@ export type FooterProps = {
   prevSlide: () => void;
 };
 
-export type FormProps = {
+export type TFormProps = {
   type: number;
 };
