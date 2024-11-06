@@ -26,7 +26,6 @@ export const Form = ({ type }: FormProps) => {
 export const Form = ({ type }: FormProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const { onSubmitSlideForm } = useDataForm();
-  const { onSubmitSlideForm } = useDataForm();
 
   const goNextSlide = () => {
     if (swiperRef.current) {
