@@ -1,6 +1,6 @@
 import { Form } from "@/components";
 
-const Orcamento = () => {
+const Pedido = () => {
   return (
     <div className="pedido-container">
       <Form type={0} />
@@ -8,4 +8,4 @@ const Orcamento = () => {
   );
 };
 
-export default Orcamento;
+export default Pedido;
