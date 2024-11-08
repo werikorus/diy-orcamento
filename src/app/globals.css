@@ -6,8 +6,12 @@
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;;
-  overflow-x: hidden;;
+  overflow-x: hidden;
+  overflow-x: hidden;
+
+  height: 100vh;
+  align-items: center;
+  align-content: center;
 }
 
 body {

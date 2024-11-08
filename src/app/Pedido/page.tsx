@@ -1,9 +1,11 @@
-import { Form } from "@/components";
+import { Form, Header } from "@/components";
+import styles from './Pedido.module.css'
 
 const Pedido = () => {
   return (
-    <div className="pedido-container">
-      <Form type={0} />
+    <div className={styles.pedidoContainer}>
+      <Header typeOrder={0} />
+      <Form />
     </div>
   );
 };

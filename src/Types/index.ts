@@ -12,7 +12,15 @@ export type TContact = {
   estado: string;
 };
 
-export type FooterProps = {
+export type TProduct = {
+  description: string,
+  quantity: number,
+  price: number
+}
+
+export type TProductsToOrder = TProduct[];
+
+export type TFooterProps = {
   nextSlide: () => void;
   prevSlide: () => void;
 };

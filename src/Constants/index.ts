@@ -1,4 +1,4 @@
-export const DEFAULT_CONTACT_VALUE = {
+export const DEFAULT_VALUE = {
   contactValues: {
     cpfCnpj: 0,
     inscricaoEstadual: 0,
@@ -12,5 +12,13 @@ export const DEFAULT_CONTACT_VALUE = {
     cidade: "",
     estado: "",
   },
+  productsValues: [
+    {
+      description: "",
+      quantity: 0,
+      price: 0.0,
+    },
+  ],
   setContactValues: () => {},
+  setProductsValues: () => {},
 };

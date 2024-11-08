@@ -1,12 +1,10 @@
 "use client";
 import React, { createContext, useState, ReactNode } from "react";
 
-import { DEFAULT_CONTACT_VALUE } from "@/Constants";
+import { DEFAULT_VALUE } from "@/Constants";
 import { IPropsDataContext } from "@/Interfaces";
 
-export const MainDataContext = createContext<IPropsDataContext>(
-  DEFAULT_CONTACT_VALUE
-);
+export const MainDataContext = createContext<IPropsDataContext>(DEFAULT_VALUE);
 
 export const MainDataContextProvider = ({
   children,
@@ -14,7 +12,11 @@ export const MainDataContextProvider = ({
   children: ReactNode;
 }) => {
   const [contactValues, setContactValues] = useState(
-    DEFAULT_CONTACT_VALUE.contactValues
+    DEFAULT_VALUE.contactValues
+  );
+
+  const [productsValues, setProductsValues] = useState(
+    DEFAULT_VALUE.productsValues
   );
 
   return (
@@ -22,6 +24,8 @@ export const MainDataContextProvider = ({
       value={{
         contactValues,
         setContactValues,
+        productsValues,
+        setProductsValues
       }}
     >
       {children}
