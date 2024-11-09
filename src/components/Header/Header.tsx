@@ -1,13 +1,13 @@
 import React from "react";
-import styles from './'
+import styles from './Header.module.css';
 
 type Props = {
   typeOrder: number;
 }
 
-export const Header = ( {typeOrder} : Props) => {
+export const Header = ({ typeOrder }: Props) => {
   return (
-    <header>
+    <header className={styles.header}>
       <h3>{typeOrder == 0 ? "Novo Pedido" : "Novo Orçamento"}</h3>
     </header>
   );

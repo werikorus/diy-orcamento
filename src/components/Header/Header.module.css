@@ -1,4 +1,5 @@
-.title{
+.header{
   display: flex;
   justify-content: center;
+  align-self: start;
 }

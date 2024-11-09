@@ -1,0 +1,7 @@
+.footerStepperContainer{
+  height: 1rem;
+  display: flex;
+  margin: auto;
+  align-items: center;
+  margin-bottom: 1rem;
+}

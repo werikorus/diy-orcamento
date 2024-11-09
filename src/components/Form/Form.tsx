@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 "use client"
 import React, { ReactNode } from "react";
+
 import {
   ContatoForm,
   ProdutosForm,
@@ -8,15 +9,15 @@ import {
   CondicoesForm,
 } from "./Fragments";
 
+import { FooterStepper } from "../FooterStepper";
 import { PreviewOrImpress } from "../PreviewOrImpress";
 import { Footer } from "../Footer";
-import { Swiper, SwiperSlide } from "swiper/react";
-
 import styles from "./Form.module.css";
+
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export const Form = () => {
-
   const forms: ReactNode[] = [
     <ContatoForm />,
     <ProdutosForm />,
@@ -32,11 +33,12 @@ export const Form = () => {
           spaceBetween={50}
           slidesPerView={1}
           className={styles.swiper}
-          allowTouchMove={false}
+          allowTouchMove={true}
         >
           {forms.map((form, index) => (
             <SwiperSlide key={index}>{form}</SwiperSlide>
           ))}
+          <FooterStepper />
           <Footer />
         </Swiper>
       </div>

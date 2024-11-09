@@ -14,20 +14,18 @@ export const Footer = () => {
   const swiper = useSwiper();
 
   return (
-    <footer className={styles.footerContainer}>
-      <div className={styles.buttonContainer}>
-        <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
-          <ArrowBackIosNewIcon />
-        </Button>
+    <footer className={styles.buttonContainer}>
+      <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
+        <ArrowBackIosNewIcon />
+      </Button>
 
-        <Button onClick={() => swiper.slideNext()} variant="text" size="large">
-          <ArrowForwardIosIcon />
-        </Button>
+      <Button onClick={() => swiper.slideNext()} variant="text" size="large">
+        <ArrowForwardIosIcon />
+      </Button>
 
-        <Button variant="text" size="large" onClick={() => router.push("/")}>
-          <HomeIcon />
-        </Button>
-      </div>
+      <Button variant="text" size="large" onClick={() => router.push("/")}>
+        <HomeIcon />
+      </Button>
     </footer>
   );
 };
