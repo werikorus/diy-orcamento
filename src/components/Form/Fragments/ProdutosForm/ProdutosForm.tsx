@@ -9,22 +9,25 @@ export const ProdutosForm = () => {
 
   const createProductItem = (
     addItem: (item: JSX.Element, index: number) => void,
-    index: number 
+    index: number
   ) => {
     const item = (
-      <li key={index} className={styles.productItem}>
+      <li key={index} className={`product-item ${styles.productItem}`}>
         <TextField
+          id="quantity-product"
           className={styles.textQuantity}
           variant="outlined"
           type="number"
           placeholder="0"
         />
         <TextField
+          id="description-product"
           className={styles.textField}
           label="Descrição"
           variant="outlined"
         />
         <TextField
+          id="price-product"
           className={styles.textCurrency}
           label="Valor R$"
           variant="outlined"
@@ -56,25 +59,28 @@ export const ProdutosForm = () => {
     <div className={styles.formContainer}>
       <h1>Produtos</h1>
       <FormControl className={styles.formControl}>
-        <ul id="product-list" className={styles.listControl}>
-          <li className={styles.productItem}>
+        <ul id="product-list" className={`product-list ${styles.listControl}`}>
+          <li className={`product-item ${styles.productItem}`}>
             <TextField
+              id="quantity-product"
               className={styles.textQuantity}
               variant="outlined"
               type="number"
               placeholder="0"
             />
             <TextField
+              id="description-product"
               className={styles.textField}
               label="Descrição"
               variant="outlined"
             />
             <TextField
+              id="price-product"
               className={styles.textCurrency}
               label="Valor R$"
               variant="outlined"
               placeholder="R$"
-              type="currency"
+              type="number"
             />
           </li>
           {items}

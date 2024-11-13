@@ -1,8 +1,8 @@
-'use client'
+"use client";
 
 import React from "react";
 import { Button } from "@mui/material";
-import styles from './Footer.module.css'
+import styles from "./Footer.module.css";
 import { useRouter } from "next/navigation";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";

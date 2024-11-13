@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-"use client"
+"use client";
 import React, { ReactNode } from "react";
 
 import {
@@ -13,6 +13,7 @@ import { FooterStepper } from "../FooterStepper";
 import { PreviewOrImpress } from "../PreviewOrImpress";
 import { Footer } from "../Footer";
 import { useMainDataContext } from "@/Hooks";
+import { useDataForm } from "@/Hooks";
 
 import styles from "./Form.module.css";
 
@@ -20,7 +21,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export const Form = () => {
- const { onSlideChange } = useMainDataContext();
+  const { setCurrentSlideIndex } = useMainDataContext();
+  const { onSubmbitForm } = useDataForm();
 
   const forms: ReactNode[] = [
     <ContatoForm />,
@@ -38,7 +40,13 @@ export const Form = () => {
           slidesPerView={1}
           className={styles.swiper}
           allowTouchMove={true}
-          onSwiper={(swipe) => onSlideChange(swipe.activeIndex)}
+          onSwiper={() => {
+            setCurrentSlideIndex(0);
+          }}
+          onSlideChange={(swipe) => {
+            setCurrentSlideIndex(swipe.activeIndex);
+            onSubmbitForm(swipe.activeIndex);
+          }}
         >
           {forms.map((form, index) => (
             <SwiperSlide key={index}>{form}</SwiperSlide>

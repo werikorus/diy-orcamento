@@ -1,24 +1,23 @@
-"use client"
+"use client";
 
-import React, { useState } from "react";
-import styles from './FooterStepper.module.css'
+import React, { useEffect, useState } from "react";
+import styles from "./FooterStepper.module.css";
 
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
+import { useMainDataContext } from "@/Hooks";
 
-
-
-const steps = [
-  "Contato",
-  "Produtos",
-  "Serviços",
-  "Condições de pagamento"
-];
+const steps = ["Contato", "Produtos", "Serviços", "Condições de pagamento"];
 
 export const FooterStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const { currentSlideIndex } = useMainDataContext();
+
+  useEffect(() => {
+    setActiveStep(currentSlideIndex);
+  }, [currentSlideIndex]);
 
   return (
     <footer className={styles.footerStepperContainer}>
@@ -29,14 +28,9 @@ export const FooterStepper = () => {
             const labelProps: {
               optional?: React.ReactNode;
             } = {};
-    
+
             return (
-              <Step
-                key={label}
-                {...stepProps}
-                onClick={() => setActiveStep(activeStep)}
-                className={styles.step}
-              >
+              <Step key={label} {...stepProps} className={styles.step}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
             );

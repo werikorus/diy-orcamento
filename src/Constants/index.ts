@@ -19,7 +19,8 @@ export const DEFAULT_VALUE = {
       price: 0.0,
     },
   ],
+  currentSlideIndex: 0,
   setContactValues: () => {},
   setProductsValues: () => {},
-  onSlideChange: () => {},
+  setCurrentSlideIndex: () => {},
 };

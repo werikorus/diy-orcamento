@@ -18,10 +18,9 @@ export const MainDataContextProvider = ({
     DEFAULT_VALUE.productsValues
   );
 
-  const onSlideChange = (index: number) =>{
-    alert(`Mexeu no slide! ${index}`);
-    return index;
-  }
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(
+    DEFAULT_VALUE.currentSlideIndex
+  );
 
   return (
     <MainDataContext.Provider
@@ -30,7 +29,8 @@ export const MainDataContextProvider = ({
         setContactValues,
         productsValues,
         setProductsValues,
-        onSlideChange,
+        currentSlideIndex,
+        setCurrentSlideIndex,
       }}
     >
       {children}

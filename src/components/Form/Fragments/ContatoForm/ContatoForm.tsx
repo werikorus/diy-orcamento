@@ -1,28 +1,7 @@
 import { TextField, FormControl } from "@mui/material";
 import styles from "./ContatoForm.module.css";
-//import { useDataForm } from "@/Hooks";
-
-//import { getValue } from "@/Helpers";
 
 export const ContatoForm = () => {
-  //const { onSubmitContactForm } = useDataForm();
-
-  //const newContactValues = {
-  //  cpfCnpj: parseInt(getValue("cnpj-cpf")),
-  //  inscricaoEstadual: parseInt(getValue("state-subscription")),
-  //  razaoSocial: getValue("social-reazon"),
-  //  nomeFantazia: getValue("fantazy-name"),
-  //  telefone: parseInt(getValue("phone")),
-  //  cep: parseInt(getValue("codepost")),
-  //  email: getValue("email"),
-  //  endereco: getValue("address"),
-  //  complemento: getValue("complement"),
-  //  cidade: getValue("city"),
-  //  estado: getValue("state"),
-  //};
-
-  //onSubmitContactForm(newContactValues);
-
   return (
     <div className={styles.formContainer}>
       <h2>Contato</h2>
