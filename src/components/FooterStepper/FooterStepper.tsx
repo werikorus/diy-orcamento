@@ -1,13 +1,14 @@
 "use client"
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styles from './FooterStepper.module.css'
 
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import { useSwiperSlide } from "swiper/react";
+
+
 
 const steps = [
   "Contato",
@@ -18,27 +19,6 @@ const steps = [
 
 export const FooterStepper = () => {
   const [activeStep, setActiveStep] = useState(0);
-
-  const swiperSlide = useSwiperSlide();
-
-  useEffect(() => {
-    console.log("MEXEU NO FORM: NEXT");
-    handleNext();
-  }, [swiperSlide?.isNext]);
-
-  
-  useEffect(() => {
-    console.log("MEXEU NO FORM: PREVIOWS");
-    handleBack();
-  }, [swiperSlide?.isPrev]);
-   
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   return (
     <footer className={styles.footerStepperContainer}>
@@ -55,6 +35,7 @@ export const FooterStepper = () => {
                 key={label}
                 {...stepProps}
                 onClick={() => setActiveStep(activeStep)}
+                className={styles.step}
               >
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>

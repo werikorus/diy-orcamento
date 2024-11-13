@@ -1,8 +1,7 @@
 "use client";
 import React, { createContext, useState, ReactNode } from "react";
-
-import { DEFAULT_VALUE } from "@/Constants";
 import { IPropsDataContext } from "@/Interfaces";
+import { DEFAULT_VALUE } from "@/Constants";
 
 export const MainDataContext = createContext<IPropsDataContext>(DEFAULT_VALUE);
 
@@ -19,13 +18,19 @@ export const MainDataContextProvider = ({
     DEFAULT_VALUE.productsValues
   );
 
+  const onSlideChange = (index: number) =>{
+    alert(`Mexeu no slide! ${index}`);
+    return index;
+  }
+
   return (
     <MainDataContext.Provider
       value={{
         contactValues,
         setContactValues,
         productsValues,
-        setProductsValues
+        setProductsValues,
+        onSlideChange,
       }}
     >
       {children}

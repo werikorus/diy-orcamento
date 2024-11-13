@@ -12,12 +12,16 @@ import {
 import { FooterStepper } from "../FooterStepper";
 import { PreviewOrImpress } from "../PreviewOrImpress";
 import { Footer } from "../Footer";
+import { useMainDataContext } from "@/Hooks";
+
 import styles from "./Form.module.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export const Form = () => {
+ const { onSlideChange } = useMainDataContext();
+
   const forms: ReactNode[] = [
     <ContatoForm />,
     <ProdutosForm />,
@@ -34,6 +38,7 @@ export const Form = () => {
           slidesPerView={1}
           className={styles.swiper}
           allowTouchMove={true}
+          onSwiper={(swipe) => onSlideChange(swipe.activeIndex)}
         >
           {forms.map((form, index) => (
             <SwiperSlide key={index}>{form}</SwiperSlide>

@@ -21,4 +21,5 @@ export const DEFAULT_VALUE = {
   ],
   setContactValues: () => {},
   setProductsValues: () => {},
+  onSlideChange: () => {},
 };

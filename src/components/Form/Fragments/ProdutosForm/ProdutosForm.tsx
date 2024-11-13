@@ -9,7 +9,7 @@ export const ProdutosForm = () => {
 
   const createProductItem = (
     addItem: (item: JSX.Element, index: number) => void,
-    index: number
+    index: number 
   ) => {
     const item = (
       <li key={index} className={styles.productItem}>
