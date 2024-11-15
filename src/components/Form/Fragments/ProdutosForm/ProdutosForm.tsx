@@ -12,7 +12,11 @@ export const ProdutosForm = () => {
     index: number
   ) => {
     const item = (
-      <li key={index} className={`product-item ${styles.productItem}`}>
+      <li
+        key={index}
+        id="product-item"
+        className={`product-item ${styles.productItem}`}
+      >
         <TextField
           id="quantity-product"
           className={styles.textQuantity}
@@ -25,6 +29,7 @@ export const ProdutosForm = () => {
           className={styles.textField}
           label="Descrição"
           variant="outlined"
+          type="text"
         />
         <TextField
           id="price-product"
@@ -32,7 +37,7 @@ export const ProdutosForm = () => {
           label="Valor R$"
           variant="outlined"
           placeholder="R$"
-          type="text"
+          type="number"
         />
         <Button size="small" onClick={() => handleDelete(index)}>
           <DeleteOutlineIcon fontSize="large" />
@@ -42,6 +47,8 @@ export const ProdutosForm = () => {
 
     addItem(item, index);
   };
+
+  //TODO: VERIFICAR POR QUE ESTÁ REPEDINDO OS ITEMS NA CRIAÇÃO DE LI
 
   const addProductItem = () => {
     const newIndex = items.length;
@@ -58,34 +65,40 @@ export const ProdutosForm = () => {
   return (
     <div className={styles.formContainer}>
       <h1>Produtos</h1>
-      <FormControl className={styles.formControl}>
-        <ul id="product-list" className={`product-list ${styles.listControl}`}>
-          <li className={`product-item ${styles.productItem}`}>
-            <TextField
-              id="quantity-product"
-              className={styles.textQuantity}
-              variant="outlined"
-              type="number"
-              placeholder="0"
-            />
-            <TextField
-              id="description-product"
-              className={styles.textField}
-              label="Descrição"
-              variant="outlined"
-            />
-            <TextField
-              id="price-product"
-              className={styles.textCurrency}
-              label="Valor R$"
-              variant="outlined"
-              placeholder="R$"
-              type="number"
-            />
-          </li>
-          {items}
-        </ul>
-      </FormControl>
+      <form noValidate autoComplete="off">
+        <FormControl className={styles.formControl} required>
+          <ul className={styles.listControl}>
+            <li
+              id="product-item"
+              className={`product-item ${styles.productItem}`}
+            >
+              <TextField
+                id="quantity-product"
+                className={styles.textQuantity}
+                variant="outlined"
+                type="number"
+                placeholder="0"
+              />
+              <TextField
+                id="description-product"
+                className={styles.textField}
+                label="Descrição"
+                variant="outlined"
+                type="text"
+              />
+              <TextField
+                id="price-product"
+                className={styles.textCurrency}
+                label="Valor R$"
+                variant="outlined"
+                placeholder="R$"
+                type="number"
+              />
+            </li>
+            {items}
+          </ul>
+        </FormControl>
+      </form>
 
       <Button
         size="small"
