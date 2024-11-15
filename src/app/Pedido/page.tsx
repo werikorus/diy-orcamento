@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import { Form, Header } from "@/components";
-import styles from './Pedido.module.css'
+import styles from "./Pedido.module.css";
 
 const Pedido = () => {
   return (

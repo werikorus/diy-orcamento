@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { TextField, FormControl, Button } from "@mui/material";
-import styles from "./ProdutosForm.module.css";
+import styles from "./ProductsForm.module.css";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 
-export const ProdutosForm = () => {
+export const ProductsForm = () => {
   const [items, setItems] = useState<JSX.Element[]>([]);
 
   const createProductItem = (
@@ -47,8 +47,6 @@ export const ProdutosForm = () => {
 
     addItem(item, index);
   };
-
-  //TODO: VERIFICAR POR QUE ESTÁ REPEDINDO OS ITEMS NA CRIAÇÃO DE LI
 
   const addProductItem = () => {
     const newIndex = items.length;

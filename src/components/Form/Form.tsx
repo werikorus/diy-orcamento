@@ -3,10 +3,10 @@
 import React, { ReactNode } from "react";
 
 import {
-  ContatoForm,
-  ProdutosForm,
-  ServicosForm,
-  CondicoesForm,
+  ContactForm,
+  ProductsForm,
+  ServicesForm,
+  ConditionsForm,
 } from "./Fragments";
 
 import { FooterStepper } from "../FooterStepper";
@@ -25,10 +25,10 @@ export const Form = () => {
   const { onSubmbitForm } = useDataForm();
 
   const forms: ReactNode[] = [
-    <ContatoForm />,
-    <ProdutosForm />,
-    <ServicosForm />,
-    <CondicoesForm />,
+    <ContactForm />,
+    <ProductsForm />,
+    <ServicesForm />,
+    <ConditionsForm />,
     <PreviewOrImpress />,
   ];
 

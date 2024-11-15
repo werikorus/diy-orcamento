@@ -1,7 +1,7 @@
 import { TextField, FormControl } from "@mui/material";
-import styles from "./ContatoForm.module.css";
+import styles from "./ContactForm.module.css";
 
-export const ContatoForm = () => {
+export const ContactForm = () => {
   return (
     <div className={styles.formContainer}>
       <h2>Contato</h2>
