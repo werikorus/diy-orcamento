@@ -2,13 +2,13 @@ import { useMainDataContext } from "../useDataContext";
 import { getContatValues, getProductValues } from "../Utils";
 
 export const useDataForm = () => {
-  const { contactValues, setContactValues, productsValues, setProductsValues } =
+  const { setContactValues, productsValues, setProductsValues } =
     useMainDataContext();
 
   const onSubmitContactForm = () => {
     const newContactValues = getContatValues();
+
     setContactValues({
-      ...contactValues,
       ...newContactValues,
     });
   };
@@ -17,8 +17,10 @@ export const useDataForm = () => {
     const newProducts = getProductValues();
 
     if (newProducts.length > 0) {
-      setProductsValues([...productsValues, ...newProducts]);
+      setProductsValues(newProducts);
     }
+
+    console.log("WERIK - ", productsValues);
   };
 
   const onSubmitServicosForm = () => {
