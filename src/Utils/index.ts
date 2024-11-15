@@ -33,3 +33,21 @@ export const getProductValues = () => {
     ),
   }));
 };
+
+export const getServiceValues = () => {
+  const listServices: HTMLElement[] = Array.from(
+    document.getElementsByClassName("service-item")
+  ) as HTMLElement[];
+
+  return listServices.map((item) => ({
+    quantity: parseInt(
+      (item.querySelector("#quantity-service") as HTMLInputElement).value || "0"
+    ),
+    description:
+      (item.querySelector("#description-service") as HTMLInputElement).value ||
+      "",
+    price: parseInt(
+      (item.querySelector("#price-service") as HTMLInputElement).value || "0"
+    ),
+  }));
+};

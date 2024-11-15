@@ -1,8 +1,9 @@
-import { getContatValues, getProductValues } from "@/Utils";
+import { getContatValues, getProductValues, getServiceValues } from "@/Utils";
 import { useMainDataContext } from "../useDataContext";
 
 export const useDataForm = () => {
-  const { setContactValues, setProductsValues } = useMainDataContext();
+  const { setContactValues, setProductsValues, setServicesValues } =
+    useMainDataContext();
 
   const onSubmitContactForm = () => {
     const newContactValues = getContatValues();
@@ -20,9 +21,12 @@ export const useDataForm = () => {
     }
   };
 
-  const onSubmitServicosForm = () => {
-    console.log("WERIK - CHAMOU OS SERVICOS");
-    //setProductsValues([...productsValues, ...products]);
+  const onSubmitServicesForm = () => {
+    const newServices = getServiceValues();
+
+    if (newServices.length > 0) {
+      setServicesValues(newServices);
+    }
   };
 
   const onSubmitCondicoesPagamentoForm = () => {
@@ -41,7 +45,7 @@ export const useDataForm = () => {
         break;
 
       case 3:
-        onSubmitServicosForm();
+        onSubmitServicesForm();
         break;
 
       case 4:

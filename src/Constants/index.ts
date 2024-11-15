@@ -19,8 +19,16 @@ export const DEFAULT_VALUE = {
       price: 0.0,
     },
   ],
+  servicesValues: [
+    {
+      description: "",
+      quantity: 0,
+      price: 0.0,
+    },
+  ],
   currentSlideIndex: 0,
   setContactValues: () => {},
   setProductsValues: () => {},
+  setServicesValues: () => {},
   setCurrentSlideIndex: () => {},
 };

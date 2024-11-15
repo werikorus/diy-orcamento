@@ -18,6 +18,10 @@ export const MainDataContextProvider = ({
     DEFAULT_VALUE.productsValues
   );
 
+  const [servicesValues, setServicesValues] = useState(
+    DEFAULT_VALUE.servicesValues
+  );
+
   const [currentSlideIndex, setCurrentSlideIndex] = useState(
     DEFAULT_VALUE.currentSlideIndex
   );
@@ -31,6 +35,8 @@ export const MainDataContextProvider = ({
         setProductsValues,
         currentSlideIndex,
         setCurrentSlideIndex,
+        servicesValues,
+        setServicesValues,
       }}
     >
       {children}

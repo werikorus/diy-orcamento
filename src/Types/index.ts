@@ -13,12 +13,19 @@ export type TContact = {
 };
 
 export type TProduct = {
-  description: string,
-  quantity: number,
-  price: number
-}
+  description: string;
+  quantity: number;
+  price: number;
+};
+
+export type TService = {
+  description: string;
+  quantity: number;
+  price: number;
+};
 
 export type TProductsToOrder = TProduct[];
+export type TServicesToOrder = TService[];
 
 export type TFooterProps = {
   nextSlide: () => void;
