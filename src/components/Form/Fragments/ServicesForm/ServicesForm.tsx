@@ -62,7 +62,7 @@ export const ServicesForm = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h1>Serviços</h1>
+      <h2>Serviços</h2>
       <form noValidate autoComplete="off">
         <FormControl className={styles.formControl}>
           <ul className={styles.lisControl}>

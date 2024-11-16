@@ -14,7 +14,7 @@ export const Footer = () => {
   const swiper = useSwiper();
 
   return (
-    <footer className={styles.buttonContainer}>
+    <footer className={styles.footerContainer}>
       <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
         <ArrowBackIosNewIcon />
       </Button>

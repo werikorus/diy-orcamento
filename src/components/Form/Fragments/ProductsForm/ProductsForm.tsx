@@ -62,7 +62,7 @@ export const ProductsForm = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h1>Produtos</h1>
+      <h2>Produtos</h2>
       <form noValidate autoComplete="off">
         <FormControl className={styles.formControl} required>
           <ul className={styles.listControl}>

@@ -1,5 +1,12 @@
-.header{
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
-  align-self: start;
+  margin: 0;
+  height: 4rem;
+  align-items: center;
 }
