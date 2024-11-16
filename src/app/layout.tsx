@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: "Orçamento/Pedido",
 };
 
-export default function RootLayout({children }:{ children: ReactNode}) {  
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

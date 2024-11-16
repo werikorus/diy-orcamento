@@ -34,7 +34,7 @@ export const ProductsForm = () => {
         <TextField
           id="price-product"
           className={styles.textCurrency}
-          label="Valor R$"
+          label="R$"
           variant="outlined"
           placeholder="R$"
           type="number"
@@ -87,7 +87,7 @@ export const ProductsForm = () => {
               <TextField
                 id="price-product"
                 className={styles.textCurrency}
-                label="Valor R$"
+                label="R$"
                 variant="outlined"
                 placeholder="R$"
                 type="number"
