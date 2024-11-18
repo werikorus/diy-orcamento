@@ -9,11 +9,11 @@ import {
   ConditionsForm,
 } from "./Fragments";
 
-import { FooterStepper } from "../FooterStepper";
 import { PreviewOrImpress } from "../PreviewOrImpress";
 import { Footer } from "../Footer";
 import { useMainDataContext } from "@/Hooks";
 import { useDataForm } from "@/Hooks";
+import { useRouter } from "next/navigation";
 
 import styles from "./Form.module.css";
 
@@ -23,38 +23,36 @@ import "swiper/css";
 export const Form = () => {
   const { setCurrentSlideIndex } = useMainDataContext();
   const { onSubmbitForm } = useDataForm();
+  const router = useRouter();
 
   const forms: ReactNode[] = [
     <ContactForm />,
     <ProductsForm />,
     <ServicesForm />,
-    <ConditionsForm />,
-    <PreviewOrImpress />,
+    "",
   ];
 
   return (
-    <>
-      <div className={styles.formContainer}>
-        <Swiper
-          spaceBetween={50}
-          slidesPerView={1}
-          className={styles.swiper}
-          allowTouchMove={true}
-          onSwiper={() => {
-            setCurrentSlideIndex(0);
-          }}
-          onSlideChange={(swipe) => {
-            setCurrentSlideIndex(swipe.activeIndex);
-            onSubmbitForm(swipe.activeIndex);
-          }}
-        >
-          {forms.map((form, index) => (
-            <SwiperSlide key={index}>{form}</SwiperSlide>
-          ))}
-          <FooterStepper />
-          <Footer />
-        </Swiper>
-      </div>
-    </>
+    <main className={styles.formContainer}>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        className={styles.swiper}
+        allowTouchMove={true}
+        onSwiper={() => {
+          setCurrentSlideIndex(0);
+        }}
+        onSlideChange={(swipe) => {
+          setCurrentSlideIndex(swipe.activeIndex);
+          onSubmbitForm(swipe.activeIndex);
+        }}
+        onReachEnd={() => router.push("/Fechamento")}
+      >
+        {forms.map((form, index) => (
+          <SwiperSlide key={index}>{form}</SwiperSlide>
+        ))}
+        <Footer />
+      </Swiper>
+    </main>
   );
 };

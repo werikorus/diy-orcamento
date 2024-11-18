@@ -1,5 +1,5 @@
 "use client";
-import { Form, Header } from "@/components";
+import { Footer, Form, Header } from "@/components";
 import styles from "./Pedido.module.css";
 
 const Pedido = () => {
@@ -7,6 +7,7 @@ const Pedido = () => {
     <div className={styles.pedidoContainer}>
       <Header typeOrder={0} />
       <Form />
+      <Footer />
     </div>
   );
 };

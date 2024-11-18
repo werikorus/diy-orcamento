@@ -24,9 +24,6 @@ export type TService = {
   price: number;
 };
 
-export type TProductsToOrder = TProduct[];
-export type TServicesToOrder = TService[];
-
 export type TFooterProps = {
   nextSlide: () => void;
   prevSlide: () => void;
@@ -34,4 +31,9 @@ export type TFooterProps = {
 
 export type TFormProps = {
   type: number;
+};
+
+export type TpaymentConditions = {
+  condition: string;
+  value: number;
 };

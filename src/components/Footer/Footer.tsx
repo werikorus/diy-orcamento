@@ -8,6 +8,7 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import HomeIcon from "@mui/icons-material/Home";
 import { useSwiper } from "swiper/react";
+import { FooterStepper } from "../FooterStepper";
 
 export const Footer = () => {
   const router = useRouter();
@@ -15,17 +16,20 @@ export const Footer = () => {
 
   return (
     <footer className={styles.footerContainer}>
-      <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
-        <ArrowBackIosNewIcon />
-      </Button>
+      <FooterStepper />
+      <div>
+        <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
+          <ArrowBackIosNewIcon />
+        </Button>
 
-      <Button onClick={() => swiper.slideNext()} variant="text" size="large">
-        <ArrowForwardIosIcon />
-      </Button>
+        <Button onClick={() => swiper.slideNext()} variant="text" size="large">
+          <ArrowForwardIosIcon />
+        </Button>
 
-      <Button variant="text" size="large" onClick={() => router.push("/")}>
-        <HomeIcon />
-      </Button>
+        <Button variant="text" size="large" onClick={() => router.push("/")}>
+          <HomeIcon />
+        </Button>
+      </div>
     </footer>
   );
 };
