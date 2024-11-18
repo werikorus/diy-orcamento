@@ -1,24 +1,13 @@
 /* eslint-disable react/jsx-key */
 "use client";
 import React, { ReactNode } from "react";
-
-import {
-  ContactForm,
-  ProductsForm,
-  ServicesForm,
-  ConditionsForm,
-} from "./Fragments";
-
-import { PreviewOrImpress } from "../PreviewOrImpress";
+import { ContactForm, ProductsForm, ServicesForm } from "./Fragments";
 import { Footer } from "../Footer";
-import { useMainDataContext } from "@/Hooks";
-import { useDataForm } from "@/Hooks";
+import { useMainDataContext, useDataForm } from "@/Hooks";
 import { useRouter } from "next/navigation";
-
-import styles from "./Form.module.css";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import styles from "./Form.module.css";
 
 export const Form = () => {
   const { setCurrentSlideIndex } = useMainDataContext();
@@ -33,7 +22,7 @@ export const Form = () => {
   ];
 
   return (
-    <main className={styles.formContainer}>
+    <section className={styles.formContainer}>
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
@@ -53,6 +42,6 @@ export const Form = () => {
         ))}
         <Footer />
       </Swiper>
-    </main>
+    </section>
   );
 };

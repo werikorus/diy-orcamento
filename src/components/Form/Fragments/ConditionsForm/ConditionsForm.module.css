@@ -5,14 +5,20 @@
   align-content: center;
   justify-items: center;
   justify-content: space-evenly;
-  height: 20rem;
+  height: 26rem;
+  margin: auto;
+  width: 18.5rem;
 }
 
 .select {
-  display: flex;
-  width: 12.5rem;
+  width: 11.5rem;
   align-items: center;
   justify-content: center;
   align-content: center;
-  margin: auto;
+  margin-right: 5px;
+}
+
+.SelectsContainer {
+  display: flex;
+  flex-direction: row;
 }

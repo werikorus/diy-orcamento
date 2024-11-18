@@ -8,9 +8,23 @@ import styles from "./ConditionsForm.module.css";
 
 export const ConditionsForm = () => {
   const [paymentCondition, setPaymentCondition] = useState("");
+  const [paymentConditionTimes, setPaymentConditionTimes] = useState("");
+
+  const priceProducts: number = 1.403;
+  const priceServices: number = 1232;
+
+  const price: number = priceProducts + priceServices;
 
   const handleChange = (event: SelectChangeEvent) => {
     setPaymentCondition(event.target.value);
+  };
+
+  const handleChangeTimes = (event: SelectChangeEvent) => {
+    setPaymentConditionTimes(event.target.value);
+  };
+
+  const handleChangeCondition = (item: number) => {
+    return item === 1 ? `${item}x ${price / 1}` : `${item}x ${price / item}`;
   };
 
   const paymentConditionsOptions: TpaymentConditions[] = [
@@ -32,22 +46,45 @@ export const ConditionsForm = () => {
     },
   ];
 
+  const paymentConditionsTimes: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
     <div className={styles.formContainer}>
       <h2>Condições de pagamento</h2>
-      <FormControl fullWidth>
-        {/*<InputLabel id="payment-condition-label">Cond. de pagamento</InputLabel>*/}
+
+      <div>
+        <h5>Valor Produtos: ${priceProducts}</h5>
+        <h5>Valor Serviços: ${priceServices}</h5>
+      </div>
+
+      <h1>Total: R$ {price}</h1>
+      <FormControl fullWidth className={styles.SelectsContainer}>
+        <div className={styles.selectContainers}>
+          <InputLabel id="payment-condition-label">Condição</InputLabel>
+          <Select
+            labelId="payment-condition-label"
+            id="payment-condition-select"
+            value={paymentCondition}
+            label="Condição"
+            onChange={handleChange}
+            className={styles.select}
+          >
+            {paymentConditionsOptions.map((item, key) => (
+              <MenuItem key={key} value={item.value}>
+                {item.condition}
+              </MenuItem>
+            ))}
+          </Select>
+        </div>
         <Select
-          labelId="payment-condition-label"
-          id="payment-condition-select"
-          value={paymentCondition}
-          label="Cond. de pagamento"
-          onChange={handleChange}
-          className={styles.select}
+          labelId="times-condition-label"
+          id="times-condition-select"
+          value={paymentConditionTimes}
+          onChange={handleChangeTimes}
         >
-          {paymentConditionsOptions.map((item, key) => (
-            <MenuItem key={key} value={item.value}>
-              {item.condition}
+          {paymentConditionsTimes.map((item, key) => (
+            <MenuItem key={key} value={item}>
+              {handleChangeCondition(item)}
             </MenuItem>
           ))}
         </Select>

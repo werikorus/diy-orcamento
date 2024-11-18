@@ -21,11 +21,9 @@ export const Footer = () => {
         <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
           <ArrowBackIosNewIcon />
         </Button>
-
         <Button onClick={() => swiper.slideNext()} variant="text" size="large">
           <ArrowForwardIosIcon />
         </Button>
-
         <Button variant="text" size="large" onClick={() => router.push("/")}>
           <HomeIcon />
         </Button>

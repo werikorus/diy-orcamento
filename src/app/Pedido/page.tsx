@@ -4,11 +4,11 @@ import styles from "./Pedido.module.css";
 
 const Pedido = () => {
   return (
-    <div className={styles.pedidoContainer}>
+    <main className={styles.pedidoContainer}>
       <Header typeOrder={0} />
       <Form />
       <Footer />
-    </div>
+    </main>
   );
 };
 
