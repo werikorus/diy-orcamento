@@ -1,3 +1,5 @@
+import { TpaymentConditions } from "@/Types";
+
 export const DEFAULT_VALUE = {
   contactValues: {
     cpfCnpj: 0,
@@ -32,3 +34,27 @@ export const DEFAULT_VALUE = {
   setServicesValues: () => {},
   setCurrentSlideIndex: () => {},
 };
+
+export const paymentConditionsOptions: TpaymentConditions[] = [
+  {
+    condition: "Pix",
+    value: 1,
+  },
+  {
+    condition: "Cartão de crédito",
+    value: 2,
+  },
+  {
+    condition: "Cheque",
+    value: 3,
+  },
+  {
+    condition: "Permuta",
+    value: 4,
+  },
+];
+
+export const paymentConditionsTimes: number[] = Array.from(
+  { length: 10 },
+  (_, i) => i + 1
+);

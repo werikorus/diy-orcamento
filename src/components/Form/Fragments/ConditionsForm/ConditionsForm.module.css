@@ -6,11 +6,15 @@
   justify-items: center;
   justify-content: space-evenly;
   height: 26rem;
-  margin: auto;
-  width: 18.5rem;
 }
 
-.select {
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+.selectConditions {
   width: 11.5rem;
   align-items: center;
   justify-content: center;
@@ -18,7 +22,6 @@
   margin-right: 5px;
 }
 
-.SelectsContainer {
-  display: flex;
-  flex-direction: row;
+.selectTimes {
+  max-width: 10rem;
 }

@@ -9,7 +9,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { useMainDataContext } from "@/Hooks";
 
-const steps = ["Contato", "Produtos", "Serviços", "Condições de pagamento"];
+const steps = ["Contato", "Produtos", "Serviços"];
 
 export const FooterStepper = () => {
   const [activeStep, setActiveStep] = useState(0);

@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { TpaymentConditions } from "@/Types";
 import styles from "./ConditionsForm.module.css";
+import { paymentConditionsOptions, paymentConditionsTimes } from "@/Constants";
 
 export const ConditionsForm = () => {
-  const [paymentCondition, setPaymentCondition] = useState("");
+  const [paymentCondition, setPaymentCondition] = useState(1);
   const [paymentConditionTimes, setPaymentConditionTimes] = useState("");
 
-  const priceProducts: number = 1.403;
+  const priceProducts: number = 1403;
   const priceServices: number = 1232;
 
   const price: number = priceProducts + priceServices;
 
   const handleChange = (event: SelectChangeEvent) => {
-    setPaymentCondition(event.target.value);
+    setPaymentCondition(parseInt(event.target.value));
   };
 
   const handleChangeTimes = (event: SelectChangeEvent) => {
@@ -27,47 +27,43 @@ export const ConditionsForm = () => {
     return item === 1 ? `${item}x ${price / 1}` : `${item}x ${price / item}`;
   };
 
-  const paymentConditionsOptions: TpaymentConditions[] = [
-    {
-      condition: "Pix",
-      value: 1,
-    },
-    {
-      condition: "Cartão de crédito",
-      value: 2,
-    },
-    {
-      condition: "Cheque",
-      value: 3,
-    },
-    {
-      condition: "Permuta",
-      value: 4,
-    },
-  ];
-
-  const paymentConditionsTimes: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  useEffect(() => {
+    if ([1, 4].includes(paymentCondition)) {
+      setPaymentConditionTimes("1");
+    }
+    console.log("WERIK - CONDITION: ", paymentCondition);
+  }, [paymentCondition, paymentConditionTimes]);
 
   return (
-    <div className={styles.formContainer}>
+    <section className={styles.formContainer}>
       <h2>Condições de pagamento</h2>
 
       <div>
-        <h5>Valor Produtos: ${priceProducts}</h5>
-        <h5>Valor Serviços: ${priceServices}</h5>
+        <h5>
+          <InputLabel>
+            Produtos:
+            <strong> R$ {priceProducts}</strong>
+          </InputLabel>
+        </h5>
+        <h5>
+          <InputLabel>
+            Serviços:
+            <strong> R$ {priceServices}</strong>
+          </InputLabel>
+        </h5>
       </div>
 
       <h1>Total: R$ {price}</h1>
-      <FormControl fullWidth className={styles.SelectsContainer}>
-        <div className={styles.selectContainers}>
+      <form className={styles.selectContainer}>
+        <FormControl>
           <InputLabel id="payment-condition-label">Condição</InputLabel>
           <Select
             labelId="payment-condition-label"
             id="payment-condition-select"
-            value={paymentCondition}
+            value={paymentCondition.toString()}
             label="Condição"
             onChange={handleChange}
-            className={styles.select}
+            className={styles.selectConditions}
           >
             {paymentConditionsOptions.map((item, key) => (
               <MenuItem key={key} value={item.value}>
@@ -75,20 +71,24 @@ export const ConditionsForm = () => {
               </MenuItem>
             ))}
           </Select>
-        </div>
-        <Select
-          labelId="times-condition-label"
-          id="times-condition-select"
-          value={paymentConditionTimes}
-          onChange={handleChangeTimes}
-        >
-          {paymentConditionsTimes.map((item, key) => (
-            <MenuItem key={key} value={item}>
-              {handleChangeCondition(item)}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-    </div>
+        </FormControl>
+        <FormControl>
+          <Select
+            labelId="times-condition-label"
+            id="times-condition-select"
+            value={paymentConditionTimes}
+            onChange={handleChangeTimes}
+            className={styles.selectTimes}
+            disabled={[1, 4].includes(paymentCondition)}
+          >
+            {paymentConditionsTimes.map((item, key) => (
+              <MenuItem key={key} value={item}>
+                {handleChangeCondition(item)}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+      </form>
+    </section>
   );
 };
