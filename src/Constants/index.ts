@@ -41,20 +41,24 @@ export const paymentConditionsOptions: TpaymentConditions[] = [
     value: 1,
   },
   {
-    condition: "Cartão de crédito",
+    condition: "Dinheiro",
     value: 2,
   },
   {
-    condition: "Cheque",
+    condition: "Cartão de crédito",
     value: 3,
   },
   {
-    condition: "Permuta",
+    condition: "Cheque",
     value: 4,
+  },
+  {
+    condition: "Permuta",
+    value: 5,
   },
 ];
 
-export const paymentConditionsTimes: number[] = Array.from(
+export const paymentConditionsTurns: number[] = Array.from(
   { length: 10 },
   (_, i) => i + 1
 );

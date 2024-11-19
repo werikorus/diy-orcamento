@@ -4,11 +4,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import styles from "./ConditionsForm.module.css";
-import { paymentConditionsOptions, paymentConditionsTimes } from "@/Constants";
+import { paymentConditionsOptions, paymentConditionsTurns } from "@/Constants";
 
 export const ConditionsForm = () => {
   const [paymentCondition, setPaymentCondition] = useState(1);
-  const [paymentConditionTimes, setPaymentConditionTimes] = useState("");
+  const [paymentTurns, setPaymentTurns] = useState("");
 
   const priceProducts: number = 1403;
   const priceServices: number = 1232;
@@ -19,8 +19,8 @@ export const ConditionsForm = () => {
     setPaymentCondition(parseInt(event.target.value));
   };
 
-  const handleChangeTimes = (event: SelectChangeEvent) => {
-    setPaymentConditionTimes(event.target.value);
+  const handleChangeTurns = (event: SelectChangeEvent) => {
+    setPaymentTurns(event.target.value);
   };
 
   const handleChangeCondition = (item: number) => {
@@ -28,11 +28,10 @@ export const ConditionsForm = () => {
   };
 
   useEffect(() => {
-    if ([1, 4].includes(paymentCondition)) {
-      setPaymentConditionTimes("1");
+    if ([1, 2, 4].includes(paymentCondition)) {
+      setPaymentTurns("1");
     }
-    console.log("WERIK - CONDITION: ", paymentCondition);
-  }, [paymentCondition, paymentConditionTimes]);
+  }, [paymentCondition]);
 
   return (
     <section className={styles.formContainer}>
@@ -41,14 +40,12 @@ export const ConditionsForm = () => {
       <div>
         <h5>
           <InputLabel>
-            Produtos:
-            <strong> R$ {priceProducts}</strong>
+            Produtos: <strong> R$ {priceProducts}</strong>
           </InputLabel>
         </h5>
         <h5>
           <InputLabel>
-            Serviços:
-            <strong> R$ {priceServices}</strong>
+            Serviços: <strong> R$ {priceServices}</strong>
           </InputLabel>
         </h5>
       </div>
@@ -74,14 +71,14 @@ export const ConditionsForm = () => {
         </FormControl>
         <FormControl>
           <Select
-            labelId="times-condition-label"
-            id="times-condition-select"
-            value={paymentConditionTimes}
-            onChange={handleChangeTimes}
-            className={styles.selectTimes}
-            disabled={[1, 4].includes(paymentCondition)}
+            labelId="Turns-condition-label"
+            id="Turns-condition-select"
+            value={paymentTurns}
+            onChange={handleChangeTurns}
+            className={styles.selectTurns}
+            disabled={[1, 2, 5].includes(paymentCondition)}
           >
-            {paymentConditionsTimes.map((item, key) => (
+            {paymentConditionsTurns.map((item, key) => (
               <MenuItem key={key} value={item}>
                 {handleChangeCondition(item)}
               </MenuItem>
