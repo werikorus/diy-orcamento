@@ -1,3 +1,4 @@
+import { TContact } from "@/Types";
 export type TContact = {
   cpfCnpj: number;
   inscricaoEstadual: number;
@@ -36,4 +37,12 @@ export type TFormProps = {
 export type TpaymentConditions = {
   condition: string;
   value: number;
+};
+
+export type TclosingOrderValues = {
+  totalProducts: number;
+  totalServices: number;
+  totalOrder: number;
+  paymentCondition: string;
+  paymentTurns: number;
 };

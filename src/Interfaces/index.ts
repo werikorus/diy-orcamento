@@ -1,11 +1,16 @@
-import { TContact, TProduct, TService } from "@/Types";
+import { Dispatch, SetStateAction } from "react";
+
+import { TclosingOrderValues, TContact, TProduct, TService } from "@/Types";
+
 export interface IPropsDataContext {
   contactValues: TContact;
   productsValues: TProduct[];
   servicesValues: TService[];
+  closingOrderValues: TclosingOrderValues;
   currentSlideIndex: number;
-  setContactValues: React.Dispatch<React.SetStateAction<TContact>>;
-  setProductsValues: React.Dispatch<React.SetStateAction<TProduct[]>>;
-  setServicesValues: React.Dispatch<React.SetStateAction<TProduct[]>>;
-  setCurrentSlideIndex: React.Dispatch<React.SetStateAction<number>>;
+  setContactValues: Dispatch<SetStateAction<TContact>>;
+  setProductsValues: Dispatch<SetStateAction<TProduct[]>>;
+  setServicesValues: Dispatch<SetStateAction<TProduct[]>>;
+  setCurrentSlideIndex: Dispatch<SetStateAction<number>>;
+  setClosingOrderValues: Dispatch<SetStateAction<TclosingOrderValues>>;
 }

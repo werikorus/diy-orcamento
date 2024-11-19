@@ -26,6 +26,10 @@ export const MainDataContextProvider = ({
     DEFAULT_VALUE.currentSlideIndex
   );
 
+  const [closingOrderValues, setClosingOrderValues] = useState(
+    DEFAULT_VALUE.closingOrderValues
+  );
+
   return (
     <MainDataContext.Provider
       value={{
@@ -37,6 +41,8 @@ export const MainDataContextProvider = ({
         setCurrentSlideIndex,
         servicesValues,
         setServicesValues,
+        closingOrderValues,
+        setClosingOrderValues,
       }}
     >
       {children}

@@ -29,11 +29,6 @@ export const useDataForm = () => {
     }
   };
 
-  const onSubmitCondicoesPagamentoForm = () => {
-    console.log("WERIK - CHAMOU OS CONDIÇÕES DE PAGAMENTO");
-    //setProductsValues([...productsValues, ...products]);
-  };
-
   const onSubmbitForm = (activeIndex: number) => {
     switch (activeIndex) {
       case 1:
@@ -46,10 +41,6 @@ export const useDataForm = () => {
 
       case 3:
         onSubmitServicesForm();
-        break;
-
-      case 4:
-        onSubmitCondicoesPagamentoForm();
         break;
 
       default:

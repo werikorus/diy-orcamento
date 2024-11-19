@@ -5,14 +5,16 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import styles from "./ConditionsForm.module.css";
 import { paymentConditionsOptions, paymentConditionsTurns } from "@/Constants";
+import { useMainDataContext } from "@/Hooks";
 
 export const ConditionsForm = () => {
   const [paymentCondition, setPaymentCondition] = useState(1);
   const [paymentTurns, setPaymentTurns] = useState("");
 
-  const priceProducts: number = 1403;
-  const priceServices: number = 1232;
+  const { closingOrderValues } = useMainDataContext();
 
+  const priceProducts: number = closingOrderValues.totalProducts;
+  const priceServices: number = closingOrderValues.totalServices;
   const price: number = priceProducts + priceServices;
 
   const handleChange = (event: SelectChangeEvent) => {
