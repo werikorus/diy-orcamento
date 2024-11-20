@@ -10,7 +10,6 @@ import { useMainDataContext } from "@/Hooks";
 export const ConditionsForm = () => {
   const [paymentCondition, setPaymentCondition] = useState(1);
   const [paymentTurns, setPaymentTurns] = useState("");
-
   const { closingOrderValues } = useMainDataContext();
 
   const priceProducts: number = closingOrderValues.totalProducts;
@@ -53,6 +52,7 @@ export const ConditionsForm = () => {
       </div>
 
       <h1>Total: R$ {price}</h1>
+
       <form className={styles.selectContainer}>
         <FormControl>
           <InputLabel id="payment-condition-label">Condição</InputLabel>

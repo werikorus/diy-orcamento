@@ -14,11 +14,12 @@ import { useMainDataContext } from "@/Hooks";
 export const Footer = () => {
   const router = useRouter();
   const swiper = useSwiper();
-  const { currentSlideIndex } = useMainDataContext();
+  const { currentSlideIndex, setCurrentSlideIndex } = useMainDataContext();
 
   const handlePrevSlide = () => {
     if (currentSlideIndex === 3) {
       router.push("/Pedido");
+      setCurrentSlideIndex(2);
     } else {
       swiper.slidePrev();
     }
@@ -28,10 +29,20 @@ export const Footer = () => {
     <footer className={styles.footerContainer}>
       <FooterStepper />
       <div>
-        <Button onClick={() => handlePrevSlide()} variant="text" size="large">
+        <Button
+          onClick={() => handlePrevSlide()}
+          variant="text"
+          size="large"
+          //disabled={currentSlideIndex === 0}
+        >
           <ArrowBackIosNewIcon />
         </Button>
-        <Button onClick={() => swiper.slideNext()} variant="text" size="large">
+        <Button
+          onClick={() => swiper.slideNext()}
+          variant="text"
+          size="large"
+          disabled={currentSlideIndex === 3}
+        >
           <ArrowForwardIosIcon />
         </Button>
         <Button variant="text" size="large" onClick={() => router.push("/")}>

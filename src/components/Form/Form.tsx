@@ -10,7 +10,7 @@ import "swiper/css";
 import styles from "./Form.module.css";
 
 export const Form = () => {
-  const { setCurrentSlideIndex } = useMainDataContext();
+  const { setCurrentSlideIndex, currentSlideIndex } = useMainDataContext();
   const { onSubmbitForm } = useDataForm();
   const router = useRouter();
 
@@ -26,7 +26,6 @@ export const Form = () => {
       <Swiper
         spaceBetween={50}
         slidesPerView={1}
-        className={styles.swiper}
         allowTouchMove={true}
         onSwiper={() => {
           setCurrentSlideIndex(0);
@@ -36,6 +35,8 @@ export const Form = () => {
           onSubmbitForm(swipe.activeIndex);
         }}
         onReachEnd={() => router.push("/Fechamento")}
+        className={styles.swiper}
+        initialSlide={currentSlideIndex}
       >
         {forms.map((form, index) => (
           <SwiperSlide key={index}>{form}</SwiperSlide>

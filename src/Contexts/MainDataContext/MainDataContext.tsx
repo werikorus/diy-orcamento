@@ -32,11 +32,12 @@ export const MainDataContextProvider = ({
 
   useEffect(() => {
     const totalPriceProducts: number = productsValues.reduce(
-      (acc, product) => acc + product.price,
+      (acc, product) => (acc + product.price) * product.quantity,
       0
     );
+
     const totalPriceServices: number = servicesValues.reduce(
-      (acc, service) => acc + service.price,
+      (acc, service) => (acc + service.price) * service.quantity,
       0
     );
 
