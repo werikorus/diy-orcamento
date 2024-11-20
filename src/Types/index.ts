@@ -1,4 +1,3 @@
-import { TContact } from "@/Types";
 export type TContact = {
   cpfCnpj: number;
   inscricaoEstadual: number;

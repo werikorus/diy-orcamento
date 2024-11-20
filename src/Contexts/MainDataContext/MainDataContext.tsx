@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useState, ReactNode } from "react";
+import React, { createContext, useState, ReactNode, useEffect } from "react";
 import { IPropsDataContext } from "@/Interfaces";
 import { DEFAULT_VALUE } from "@/Constants";
 
@@ -29,6 +29,28 @@ export const MainDataContextProvider = ({
   const [closingOrderValues, setClosingOrderValues] = useState(
     DEFAULT_VALUE.closingOrderValues
   );
+
+  useEffect(() => {
+    const totalPriceProducts: number = productsValues.reduce(
+      (acc, product) => acc + product.price,
+      0
+    );
+    const totalPriceServices: number = servicesValues.reduce(
+      (acc, service) => acc + service.price,
+      0
+    );
+
+    const totalPriceOrder: number = totalPriceProducts + totalPriceServices;
+
+    setClosingOrderValues((prev) => ({
+      ...prev,
+      totalProducts: totalPriceProducts,
+      totalServices: totalPriceServices,
+      totalOrder: totalPriceOrder,
+      paymentCondition: "",
+      paymentTurns: 0,
+    }));
+  }, [productsValues, servicesValues]);
 
   return (
     <MainDataContext.Provider

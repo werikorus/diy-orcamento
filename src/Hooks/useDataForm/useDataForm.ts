@@ -8,9 +8,7 @@ export const useDataForm = () => {
   const onSubmitContactForm = () => {
     const newContactValues = getContatValues();
 
-    setContactValues({
-      ...newContactValues,
-    });
+    setContactValues(newContactValues);
   };
 
   const onSubmitProductsForm = () => {

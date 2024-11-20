@@ -9,16 +9,26 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import HomeIcon from "@mui/icons-material/Home";
 import { useSwiper } from "swiper/react";
 import { FooterStepper } from "../FooterStepper";
+import { useMainDataContext } from "@/Hooks";
 
 export const Footer = () => {
   const router = useRouter();
   const swiper = useSwiper();
+  const { currentSlideIndex } = useMainDataContext();
+
+  const handlePrevSlide = () => {
+    if (currentSlideIndex === 3) {
+      router.push("/Pedido");
+    } else {
+      swiper.slidePrev();
+    }
+  };
 
   return (
     <footer className={styles.footerContainer}>
       <FooterStepper />
       <div>
-        <Button onClick={() => swiper.slidePrev()} variant="text" size="large">
+        <Button onClick={() => handlePrevSlide()} variant="text" size="large">
           <ArrowBackIosNewIcon />
         </Button>
         <Button onClick={() => swiper.slideNext()} variant="text" size="large">
