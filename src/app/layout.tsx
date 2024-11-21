@@ -1,8 +1,12 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { MainDataContextProvider } from "@/Contexts";
 import { ReactNode } from "react";
 import "./globals.css";
+import { initializeApp } from "firebase/app";
+
+require("dotenv").config();
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,6 +25,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const firebaseConfig = {
+    apiKey: process.env.API_KEY_FIREBASE,
+    authDomain: "diy-orcamento-db.firebaseapp.com",
+    projectId: "diy-orcamento-db",
+    storageBucket: "diy-orcamento-db.firebasestorage.app",
+    messagingSenderId: process.env.MESSAGING_SENDER_ID,
+    appId: process.env.APP_ID,
+    measurementId: process.env.MEASUREMENT_ID,
+  };
+
+  initializeApp(firebaseConfig);
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
