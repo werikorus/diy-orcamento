@@ -48,8 +48,8 @@ export const MainDataContextProvider = ({
       totalProducts: totalPriceProducts,
       totalServices: totalPriceServices,
       totalOrder: totalPriceOrder,
-      paymentCondition: "",
-      paymentTurns: 0,
+      paymentCondition: "Pix",
+      paymentTurns: 1,
     }));
   }, [productsValues, servicesValues]);
 

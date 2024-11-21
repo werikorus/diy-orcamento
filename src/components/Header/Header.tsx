@@ -13,11 +13,8 @@ const handleTitle = (type: number) => {
     case 1:
       return "Orçamento";
 
-    case 2:
-      return "Fechamento";
-
     default:
-      break;
+      return "Fechamento";
   }
 };
 

@@ -3,14 +3,14 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
-import styles from "./ConditionsForm.module.css";
 import { paymentConditionsOptions, paymentConditionsTurns } from "@/Constants";
 import { useMainDataContext } from "@/Hooks";
+import styles from "./ConditionsForm.module.css";
 
 export const ConditionsForm = () => {
   const [paymentCondition, setPaymentCondition] = useState(1);
   const [paymentTurns, setPaymentTurns] = useState("");
-  const { closingOrderValues } = useMainDataContext();
+  const { closingOrderValues, setClosingOrderValues } = useMainDataContext();
 
   const priceProducts: number = closingOrderValues.totalProducts;
   const priceServices: number = closingOrderValues.totalServices;
@@ -25,7 +25,7 @@ export const ConditionsForm = () => {
   };
 
   const handleChangeCondition = (item: number) => {
-    return item === 1 ? `${item}x ${price / 1}` : `${item}x ${price / item}`;
+    return item === 1 ? `${item}x ${price}` : `${item}x ${price / item}`;
   };
 
   useEffect(() => {
@@ -33,6 +33,16 @@ export const ConditionsForm = () => {
       setPaymentTurns("1");
     }
   }, [paymentCondition]);
+
+  useEffect(() => {
+    setClosingOrderValues({
+      totalProducts: closingOrderValues.totalProducts,
+      totalServices: closingOrderValues.totalServices,
+      totalOrder: price,
+      paymentCondition: handleChangeCondition(paymentCondition),
+      paymentTurns: parseInt(paymentTurns),
+    });
+  }, [paymentTurns]);
 
   return (
     <section className={styles.formContainer}>
