@@ -5,6 +5,7 @@ import { MainDataContextProvider } from "@/Contexts";
 import { ReactNode } from "react";
 import "./globals.css";
 import { initializeApp } from "firebase/app";
+import { getDatabase } from "firebase/database";
 
 require("dotenv").config();
 
@@ -33,9 +34,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     messagingSenderId: process.env.MESSAGING_SENDER_ID,
     appId: process.env.APP_ID,
     measurementId: process.env.MEASUREMENT_ID,
+    databaseURL: "https://default.firebaseio.com",
   };
 
-  initializeApp(firebaseConfig);
+  const app = initializeApp(firebaseConfig);
+  getDatabase(app);
 
   return (
     <html lang="en">
