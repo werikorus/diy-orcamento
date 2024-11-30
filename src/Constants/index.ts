@@ -1,4 +1,5 @@
 import { TpaymentConditions } from "@/Types";
+import localFont from "next/font/local";
 
 export const DEFAULT_VALUE = {
   contactValues: {
@@ -70,3 +71,15 @@ export const paymentConditionsTurns: number[] = Array.from(
   { length: 10 },
   (_, i) => i + 1
 );
+
+export const geistSans = localFont({
+  src: "./../app/fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+
+export const geistMono = localFont({
+  src: "./../app/fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
