@@ -1,0 +1,13 @@
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  margin: auto;
+  height: 100vh;
+}
+
+.tHead {
+  display: flex;
+  background-color: yellow;
+  justify-content: center;
+}

@@ -1,5 +1,12 @@
 .ClosingContainer {
+  display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
-  height: 100vh;
+}
+.PrintAndPreviewContainer {
+  display: flex;
+  width: 230px;
+  justify-content: space-evenly;
+  margin: auto;
 }
