@@ -1,13 +1,16 @@
 .tableContainer {
   display: flex;
   flex-direction: column;
-  width: 800px;
   margin: auto;
-  height: 100vh;
+  border: 1px solid black;
+  width: 500px;
 }
 
 .tHead {
   display: flex;
-  background-color: yellow;
   justify-content: center;
+}
+
+.tbody {
+  display: flex;
 }

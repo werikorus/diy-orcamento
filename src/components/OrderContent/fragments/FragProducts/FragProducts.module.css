@@ -1,0 +1,29 @@
+.contactContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rowTitle,
+.rowValue {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  padding: 4px;
+}
+
+.containerRow {
+  display: flex;
+  padding: 10px;
+  border: 1px solid black;
+}
+.rowTitle {
+  display: flex;
+  width: 100%;
+  justify-self: center;
+}
+.rowValue {
+  display: flex;
+  width: 100%;
+  justify-self: center;
+}
